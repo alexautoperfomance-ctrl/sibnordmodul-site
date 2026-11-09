@@ -1,0 +1,29 @@
+{
+  "viewport": {
+    "width": 1280,
+    "height": 844
+  },
+  "document": {
+    "width": 1280,
+    "height": 4498
+  },
+  "horizontalOverflow": false,
+  "missingImages": [],
+  "missingAnchors": [],
+  "fontsLoaded": true,
+  "tests": {
+    "cabinFilter": true,
+    "blockFilter": true,
+    "orderFilter": true,
+    "resetFilter": true,
+    "search": true,
+    "callback": true,
+    "mobileMenu": true,
+    "gallery": true,
+    "galleryNext": true,
+    "whatsappPrefill": true,
+    "formNoAutoSend": true,
+    "privacyDialog": true
+  },
+  "allPassed": true
+}
