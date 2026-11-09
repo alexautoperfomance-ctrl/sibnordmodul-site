@@ -24,6 +24,6 @@
  $$('.callback-form').forEach(form=>{
   $('input[name=phone]',form).addEventListener('input',e=>e.target.setCustomValidity(''));
   form.addEventListener('submit',e=>{e.preventDefault();if(!valid(form))return;const url='https://wa.me/79139438814?text='+encodeURIComponent(message(form));const a=document.createElement('a');a.href=url;a.target='_blank';a.rel='noopener';a.click();$('.form-status',form).textContent='Откроется WhatsApp с подготовленным текстом. Заявка ещё не отправлена.'});
-  $('[data-email]',form).addEventListener('click',()=>{if(!valid(form))return;window.location.href='mailto:Sibnordmodul@yandex.ru?subject='+encodeURIComponent('Заявка с сайта СибНордМодуль')+'&body='+encodeURIComponent(message(form));$('.form-status',form).textContent='Сообщение подготовлено для вашей почтовой программы. Проверьте его перед отправкой.'});
+  $('[data-email]',form).addEventListener('click',()=>{if(!valid(form))return;window.location.href='mailto:Sibnordmodul@yandex.ru?subject='+encodeURIComponent('Заявка с сайта SibNordModul')+'&body='+encodeURIComponent(message(form));$('.form-status',form).textContent='Сообщение подготовлено для вашей почтовой программы. Проверьте его перед отправкой.'});
  });
 })();

@@ -13,3 +13,14 @@
 @media(min-width:768px){.hero{height:220px}.page-columns{padding-top:25px}#catalog{position:relative}.catalog-head{margin-bottom:23px}.catalog-head>a,.catalog-intro{display:none}.catalog-tabs{position:absolute;top:8px;right:0;margin:0;gap:17px;border:0}.catalog-tabs button{font-size:11px;padding-bottom:6px}.catalog-tabs button[aria-pressed=true]::after{bottom:0}.hero h1{font-size:28px}.hero__link{margin-top:14px}.hero__kicker{font-size:10px}}
 @media(min-width:768px) and (max-width:1150px){.catalog-tabs{gap:11px}.catalog-tabs button{font-size:10px}.catalog-head h2{font-size:23px}}
 .footer .logo>img{background:#fff;border-radius:2px;padding:3px}
+/* Photorealistic catalogue refresh; ratio shared by every product illustration. */
+.product__image{height:auto;aspect-ratio:4/3}
+.product__image picture{width:100%;height:100%;display:block}
+.product__image img{width:100%;height:100%;object-fit:cover;object-position:center}
+.order-card>picture{display:block;aspect-ratio:4/3;overflow:hidden;background:var(--soft);margin-bottom:12px}
+.order-card>picture img{height:100%;width:100%;object-fit:cover;object-position:center;margin:0}
+.catalog-render-note{font-size:11px;color:#91979c;font-weight:300;margin:15px 0 0;line-height:1.5}
+.logo>img{width:279px;height:64px;object-fit:contain}
+.footer .logo>img{width:235px;height:auto;background:none;padding:0;border-radius:0}
+@media(max-width:1150px) and (min-width:768px){.logo>img{width:250px;height:auto}}
+@media(max-width:767px){.logo>img{width:267px;height:auto}.order-card>picture{margin-bottom:10px}.order-card:last-child>picture{grid-row:1/5;aspect-ratio:4/3;margin:0;width:100%}.order-card:last-child>picture img{height:100%;width:100%;margin:0}.catalog-render-note{font-size:10px}.footer .logo>img{width:240px;height:auto}}
