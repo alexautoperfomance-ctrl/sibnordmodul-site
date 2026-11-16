@@ -409,7 +409,7 @@ def footer(depth):
 </nav>
 <dialog aria-labelledby="drawer-title" class="drawer" id="menu-drawer">
 <div class="drawer__top"><span id="drawer-title">SibNordModul</span>
-<button aria-label="Закрыть меню" data-close="" type="button"><svg aria-hidden="true" class="icon"><use href="#i-close"></use></svg></button></div>
+<button class="close-btn" aria-label="Закрыть меню" data-close="" type="button"><svg aria-hidden="true" class="icon"><use href="#i-close"></use></svg></button></div>
 <nav>{''.join(f'<a href="{href(depth,k)}">{esc(t)}</a>' for k,t in PAGES)}</nav>
 <div class="drawer__contact">
 <a class="phone" href="{TEL}">{PHONE_DISP}</a>
@@ -419,7 +419,7 @@ def footer(depth):
 </div></dialog>
 <dialog aria-labelledby="photo-title" class="modal photo-modal" id="photo-modal">
 <div class="modal__head"><h2 id="photo-title">Фото</h2>
-<button aria-label="Закрыть" data-close="" type="button"><svg aria-hidden="true" class="icon"><use href="#i-close"></use></svg></button></div>
+<button class="close-btn" aria-label="Закрыть" data-close="" type="button"><svg aria-hidden="true" class="icon"><use href="#i-close"></use></svg></button></div>
 <div class="photo-modal__frame">
 <button class="photo-arrow prev" type="button" aria-label="Назад">‹</button>
 <img alt="" id="lightbox-image"/>
@@ -429,7 +429,7 @@ def footer(depth):
 </dialog>
 <dialog aria-labelledby="privacy-title" class="modal" id="privacy-modal">
 <div class="modal__head"><h2 id="privacy-title">О данных в форме</h2>
-<button aria-label="Закрыть" data-close="" type="button"><svg aria-hidden="true" class="icon"><use href="#i-close"></use></svg></button></div>
+<button class="close-btn" aria-label="Закрыть" data-close="" type="button"><svg aria-hidden="true" class="icon"><use href="#i-close"></use></svg></button></div>
 <div class="modal__body privacy-text">
 <p>Этот сайт не отправляет и не сохраняет данные формы на сервере. Имя, телефон и выбранный вариант используются в вашем браузере, чтобы подготовить сообщение.</p>
 <p>При нажатии кнопки откроется WhatsApp или почтовая программа. Данные будут переданы выбранному сервису в тексте черновика только после вашего подтверждения.</p>
@@ -652,29 +652,144 @@ def page_custom():
 
 
 def page_about():
-    return f'''
-<section class="page-hero"><div class="container narrow">
+    opts = [
+        ('Электрика и освещение', [
+            'Разводка электрики под задачу',
+            'Освещение помещений',
+            'Розетки и выключатели',
+            'Электрический щиток',
+            'Закладная под ввод электричества',
+        ]),
+        ('Внутренняя отделка', [
+            'Вагонка',
+            'МДФ- и ПВХ-панели',
+            'ОСБ',
+            'Гипсокартон',
+            'Линолеум',
+        ]),
+        ('Отопление и климат', [
+            'Конвекторы',
+            'Тепловая пушка',
+            'Печь',
+            'Тёплый пол',
+            'Кондиционер',
+        ]),
+        ('Утепление', [
+            'Разные виды утеплителя',
+            'Разная толщина теплового контура',
+            'Ветрозащита и пароизоляция',
+        ]),
+        ('Окна, двери и защита', [
+            'Дополнительные окна',
+            'Дополнительные двери',
+            'Решётки на окна',
+            'Рольставни',
+        ]),
+        ('Планировка', [
+            'Перегородки',
+            'Тамбур',
+            'Нестандартные размеры и раскладка помещений',
+        ]),
+        ('Сантехника', [
+            'Туалет',
+            'Душ',
+            'Умывальник и разводка воды',
+        ]),
+        ('Мебель и оснащение', [
+            'Кровати',
+            'Шкафчики и стеллажи',
+            'Другое оборудование по заданию',
+        ]),
+        ('Снаружи и шасси', [
+            'Крыльцо и навес',
+            'Покраска каркаса',
+            'Сани-полозья',
+            'Любой цвет профлиста по RAL или оцинковка',
+        ]),
+    ]
+    opt_html = ''.join(
+        f'<article class="opt-group"><h3>{esc(t)}</h3><ul>' +
+        ''.join(f'<li>{esc(i)}</li>' for i in items) +
+        '</ul></article>'
+        for t, items in opts
+    )
+    uses = [
+        ('Строительные бытовки', 'Для смены, инструмента и быта на площадке.'),
+        ('Жильё бригады и раздевалки', 'Чтобы переодеться, отдохнуть и переночевать без лишних построек на объекте.'),
+        ('Прорабские и офисы', 'Кабинет, переговорная или офис из одного или нескольких блоков.'),
+        ('Дачные и хозяйственные модули', 'Для участка, хранения и сезонного проживания.'),
+        ('Склады и хозблоки', 'Под материалы, инвентарь и оборудование.'),
+        ('Посты охраны и КПП', 'С обзором, козырьком и нужной начинкой.'),
+        ('Санитарные блоки', 'Душ, туалет, умывальник — отдельно или в составе модуля.'),
+        ('Модульные дома и северные бытовки', 'Жилые блоки и конструкции из сэндвич-панелей под задачу и климат.'),
+    ]
+    use_html = ''.join(
+        f'<article class="about-card"><h3>{esc(t)}</h3><p>{esc(p)}</p></article>'
+        for t, p in uses
+    )
+    return f"""
+<section class="page-hero about-hero"><div class="container">
+<p class="hero__kicker">Производство в Новосибирске</p>
 <h1>О компании</h1>
-<p class="lead">SibNordModul — собственное производство в Новосибирске. Мы делаем решения на основе бытовок всех видов: обычные серийные модули, модульные дома и северные бытовки из сэндвич-панелей.</p>
+<p class="lead">SibNordModul — собственное производство металлических строительных бытовок, утеплённых модулей, северных бытовок из сэндвич-панелей и модульных домов. Изготавливаем, продаём и сдаём в аренду. Размер, планировку и комплектацию собираем под вашу задачу.</p>
 </div></section>
-<section class="content-section"><div class="container narrow text-content">
-<p>Собираем металлический каркас, утепляем, обшиваем и выполняем внутреннюю отделку. Основной серийный продукт — утеплённая бытовка 2,4 × 6 м в комплектации, которая показана в фотогалерее: её стоимость {PRICE}. Другие размеры и исполнения рассчитываются отдельно.</p>
-<p>Бытовки подходят для стройки, жилья бригады, прорабской, офиса на объекте, дачи и склада. В наличии разные варианты — ждать изготовления не нужно. Под заказ делаем нестандартные размеры и планировки, блок-контейнеры, санитарные модули, посты охраны, совмещённые блоки, а также модульные дома.</p>
-<p>Отдельно изготавливаем северные бытовки из сэндвич-панелей — для регионов, где нужен другой контур утепления, чем у обычной серийной бытовки.</p>
-<div class="about-block">
+
+<section class="content-section"><div class="container">
+<div class="about-intro text-content">
+<p>Мы сами варим каркас, утепляем, обшиваем и комплектуем модули на своей площадке в Новосибирске. Без перепродавца: видно, из чего сделана конструкция, и можно заказать и типовой вариант из наличия, и нестандартный — с нужной раскладкой комнат, цветом и дооснащением.</p>
+<p>Бытовки идут на стройку, в жильё бригады, в прорабскую и офис на объекте, на дачу, под склад и хозяйственные нужды. Если нужен другой тепловой контур — делаем северные бытовки из сэндвич-панелей. Если площади одного блока мало — собираем модульный дом или сдвоенный модуль.</p>
+<p>В наличии разные варианты — ждать изготовления не обязательно. Под заказ берём любой размер и планировку.</p>
+</div>
+<div class="about-use-grid">{use_html}</div>
+</div></section>
+
+<section class="content-section soft-band"><div class="container">
+<h2>Как мы производим</h2>
+<p class="section-note">Ниже — наши обычные производственные решения. По заданию можем изменить материалы, толщины и узлы.</p>
+<div class="std-grid">
+<article class="std-card">
+<h3><svg aria-hidden="true" class="icon"><use href="#i-frame"></use></svg>Металлический каркас</h3>
+<p>Несущая основа — сварной стальной каркас. В типовой сборке используем швеллер 100 × 45, уголок 63 × 63 мм толщиной 5 мм, профильную трубу 40 × 40 мм со стенкой 3 мм и усиленные укосины из листового металла 4 мм. По желанию каркас окрашиваем.</p>
+</article>
+<article class="std-card">
+<h3><svg aria-hidden="true" class="icon"><use href="#i-cabin"></use></svg>Наружная отделка</h3>
+<p>Стены — профлист С8, кровля — профлист С20. Цвет листа выбираете по каталогу RAL, возможен и оцинкованный вариант без цветного покрытия. Ставим металлическую входную дверь и открывающиеся окна. Можно добавить окна, двери, решётки, рольставни, крыльцо или навес.</p>
+</article>
+<article class="std-card">
+<h3><svg aria-hidden="true" class="icon"><use href="#i-layers"></use></svg>Утепление и внутренний контур</h3>
+<p>Внутри — деревянный каркас из доски 50 × 100 мм, обрешётка 25 × 100 мм, утеплитель, ветрозащита и пароизоляция. В базовой сборке утеплитель 100 мм, стены — ОСБ 9 мм, пол — ОСБ 15 мм. Вид и толщину утеплителя, а также внутреннюю обшивку подберём отдельно.</p>
+</article>
+<article class="std-card">
+<h3><svg aria-hidden="true" class="icon"><use href="#i-bolt"></use></svg>Электрика</h3>
+<p>В стандарт закладываем розетки и выключатель, освещение, электрический щиток и закладную под ввод. Схему, число точек и освещённость можно расширить под помещение.</p>
+</article>
+</div>
+</div></section>
+
+<section class="content-section" id="options"><div class="container">
+<h2>Докомплектация</h2>
+<p class="section-note">Можем изготовить модуль с любой из этих опций — по отдельности или в наборе. Состав и стоимость дооснащения считаем индивидуально.</p>
+<div class="opt-grid">{opt_html}</div>
+</div></section>
+
+<section class="content-section soft-band"><div class="container about-bottom">
+<div class="about-col">
 <h2>Доставка</h2>
-<p>Доставка примерно до 1000 км от Новосибирска: Новосибирская область, Алтайский край, Республика Алтай, Кемеровская, Томская и Омская области, Красноярский край, Хакасия. Условия и стоимость доставки обсуждаем при заказе.</p>
+<p>Доставляем примерно до 1000 км от Новосибирска: Новосибирская область, Алтайский край, Республика Алтай, Кемеровская, Томская и Омская области, Красноярский край, Хакасия. Способ, срок и условия перевозки обсуждаем при заказе.</p>
 </div>
-<div class="about-block">
-<h2>Продажа и аренда</h2>
-<p>Продаём готовые бытовки из наличия и изготавливаем под заказ. Сдаём в аренду — от 8 000 ₽ в месяц, точная цена договорная. Оплата наличными или безналичным расчётом, работаем с НДС и без НДС.</p>
+<div class="about-col">
+<h2>Продажа, аренда и оплата</h2>
+<p>Продаём готовые модули из наличия и изготавливаем под заказ. Сдаём бытовки в аренду — условия и срок договорные. Оплата наличными или безналичным расчётом, работаем с НДС и без НДС.</p>
 </div>
-<p>Производим сами — контроль качества на каждом этапе, от каркаса до отделки.</p>
+</div>
+<div class="container">
+<div class="cta-band">
+<p>Расскажите задачу — подскажем конструкцию, комплектацию и срок. Производим сами и проверяем сборку на каждом этапе, от каркаса до отделки.</p>
 {chat_btns()}
 <p class="subtle">Телефон <a href="{TEL}">{PHONE_DISP}</a> · <a href="{MAIL}">{MAIL_DISP}</a> · {esc(ADDR)}</p>
+</div>
 </div></section>
-'''
-
+"""
 
 def page_gallery(photos):
     if not photos:
@@ -816,6 +931,34 @@ CSS_ADD = r'''
   .gallery-item img{height:160px}
   .header__chats{display:none}
 }
+
+.about-hero .lead{max-width:46em}
+.about-intro{max-width:52em;margin-bottom:28px}
+.about-use-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.about-card{border:1px solid var(--line);background:#fff;padding:18px 16px}
+.about-card h3{font-size:16px;margin-bottom:6px}
+.about-card p{font-size:13px;color:#5c6369;font-weight:300}
+.std-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.std-card{background:#fff;border:1px solid var(--line);padding:20px 18px}
+.std-card h3{display:flex;align-items:center;gap:8px;font-size:17px;margin-bottom:8px}
+.std-card h3 .icon{width:20px;height:20px;color:var(--accent-dark)}
+.std-card p{font-size:14px;color:#4e555b;font-weight:300}
+.opt-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.opt-group{border:1px solid var(--line);background:#fff;padding:18px 16px 14px}
+.opt-group h3{font-size:16px;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.opt-group ul{margin:0;padding:0;list-style:none}
+.opt-group li{position:relative;padding:5px 0 5px 16px;font-size:13px;color:#4a5157;font-weight:300}
+.opt-group li::before{content:"";position:absolute;left:0;top:12px;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.about-bottom{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-bottom:8px}
+.about-col h2{margin-bottom:10px}
+.about-col p{font-size:14px;font-weight:300;color:#4e555b;max-width:38em}
+@media(max-width:991px){
+  .about-use-grid,.opt-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .about-bottom,.std-grid{grid-template-columns:1fr}
+}
+@media(max-width:767px){
+  .about-use-grid,.opt-grid{grid-template-columns:1fr}
+}
 '''
 
 
@@ -920,7 +1063,7 @@ def write_all(photos):
             1, 'custom', 'custom/', page_custom()),
         ROOT / 'about' / 'index.html': wrap(
             'О компании — SibNordModul',
-            'Собственное производство бытовок, модульных домов и северных бытовок из сэндвич-панелей в Новосибирске. Доставка по Сибири.',
+            'Собственное производство металлических строительных бытовок, утеплённых модулей, северных бытовок из сэндвич-панелей и модульных домов в Новосибирске. Продажа, аренда и докомплектация под задачу.',
             1, 'about', 'about/', page_about()),
         ROOT / 'gallery' / 'index.html': wrap(
             'Фотогалерея — SibNordModul',
