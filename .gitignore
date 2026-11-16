@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+rebuild_report.txt
+.DS_Store

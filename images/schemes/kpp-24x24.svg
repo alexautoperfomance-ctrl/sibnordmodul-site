@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="540" viewBox="0 0 800 540" role="img" aria-label="КПП 2,4×2,4 м с козырьком">
+<rect width="800" height="540" fill="#f7f8f9"/>
+<text x="24" y="28" font-family="Roboto,Arial,sans-serif" font-size="13" fill="#87898c">Фасад</text>
+<text x="24" y="328" font-family="Roboto,Arial,sans-serif" font-size="13" fill="#87898c">План</text>
+<text x="776" y="28" text-anchor="end" font-family="Roboto,Arial,sans-serif" font-size="13" fill="#2A2E33">2,4 × 2,4 м</text>
+<rect x="293.0" y="40.0" width="214.0" height="12" fill="#3a4046" stroke="#2A2E33" stroke-width="1.4"/>
+<rect x="296.0" y="50.0" width="208.0" height="150.0" fill="#e8eaed" stroke="#2A2E33" stroke-width="1.8"/>
+<line x1="302.0" y1="52.0" x2="302.0" y2="198.0" stroke="#c9ced3" stroke-width="1"/>
+<line x1="310.0" y1="52.0" x2="310.0" y2="198.0" stroke="#c9ced3" stroke-width="1"/>
+<line x1="318.0" y1="52.0" x2="318.0" y2="198.0" stroke="#c9ced3" stroke-width="1"/>
+<line x1="326.0" y1="52.0" x2="326.0" y2="198.0" stroke="#c9ced3" stroke-width="1"/>
+<line x1="334.0" y1="52.0" x2="334.0" y2="198.0" stroke="#c9ced3" stroke-width="1"/>
+<line x1="342.0" y1="52.0" x2="342.0" y2="198.0" stroke="#c9ced3" stroke-width="1"/>
+<line x1="350.0" y1="52.0" x2="350.0" y2="198.0" stroke="#c9ced3" stroke-width="1"/>
+<line x1="358.0" y1="52.0" x2="358.0" y2="198.0" stroke="#c9ced3" stroke-width="1"/>
+<line x1="366.0" y1="52.0" x2="366.0" y2="198.0" stroke="#c9ced3" stroke-width="1"/>
+<line x1="374.0" y1="52.0" x2="374.0" y2="198.0" stroke="#c9ced3" stroke-width="1"/>
+<line x1="382.0" y1="52.0" x2="382.0" y2="198.0" stroke="#c9ced3" stroke-width="1"/>
+<line x1="390.0" y1="52.0" x2="390.0" y2="198.0" stroke="#c9ced3" stroke-width="1"/>
+<line x1="398.0" y1="52.0" x2="398.0" y2="198.0" stroke="#c9ced3" stroke-width="1"/>
+<line x1="406.0" y1="52.0" x2="406.0" y2="198.0" stroke="#c9ced3" stroke-width="1"/>
+<line x1="414.0" y1="52.0" x2="414.0" y2="198.0" stroke="#c9ced3" stroke-width="1"/>
+<line x1="422.0" y1="52.0" x2="422.0" y2="198.0" stroke="#c9ced3" stroke-width="1"/>
+<line x1="430.0" y1="52.0" x2="430.0" y2="198.0" stroke="#c9ced3" stroke-width="1"/>
+<line x1="438.0" y1="52.0" x2="438.0" y2="198.0" stroke="#c9ced3" stroke-width="1"/>
+<line x1="446.0" y1="52.0" x2="446.0" y2="198.0" stroke="#c9ced3" stroke-width="1"/>
+<line x1="454.0" y1="52.0" x2="454.0" y2="198.0" stroke="#c9ced3" stroke-width="1"/>
+<line x1="462.0" y1="52.0" x2="462.0" y2="198.0" stroke="#c9ced3" stroke-width="1"/>
+<line x1="470.0" y1="52.0" x2="470.0" y2="198.0" stroke="#c9ced3" stroke-width="1"/>
+<line x1="478.0" y1="52.0" x2="478.0" y2="198.0" stroke="#c9ced3" stroke-width="1"/>
+<line x1="486.0" y1="52.0" x2="486.0" y2="198.0" stroke="#c9ced3" stroke-width="1"/>
+<line x1="494.0" y1="52.0" x2="494.0" y2="198.0" stroke="#c9ced3" stroke-width="1"/>
+<polygon points="394.96000000000004,98 474.96000000000004,98 468.96000000000004,108 400.96000000000004,108" fill="#3a4046" stroke="#2A2E33" stroke-width="1.2"/>
+<rect x="337.6" y="104.0" width="36" height="96" fill="#7a3f16" stroke="#2A2E33" stroke-width="1.5"/>
+<circle cx="366.6" cy="152.0" r="2.2" fill="#e8c37a" stroke="#2A2E33" stroke-width=".8"/>
+<rect x="362.6" y="86.0" width="129.0" height="70.0" fill="#c9dbe8" stroke="#2A2E33" stroke-width="1.5"/>
+<line x1="405.5" y1="86.0" x2="405.5" y2="156.0" stroke="#2A2E33" stroke-width="1"/>
+<line x1="448.5" y1="86.0" x2="448.5" y2="156.0" stroke="#2A2E33" stroke-width="1"/>
+<line x1="362.6" y1="121.0" x2="491.5" y2="121.0" stroke="#2A2E33" stroke-width="1"/>
+<line x1="256.0" y1="200.0" x2="544.0" y2="200.0" stroke="#c5c9cd" stroke-width="1.2"/>
+<g stroke="#87898c" fill="#87898c" stroke-width="1"><line x1="296.0" y1="218.0" x2="504.0" y2="218.0"/><line x1="296.0" y1="213.0" x2="296.0" y2="223.0"/><line x1="504.0" y1="213.0" x2="504.0" y2="223.0"/></g><text x="400.0" y="212.0" text-anchor="middle" font-family="Roboto,Arial,sans-serif" font-size="12" fill="#87898c">2,40 м</text>
+<rect x="325.0" y="350.0" width="150.0" height="150.0" fill="#fff" stroke="#2A2E33" stroke-width="2"/>
+<line x1="355.0" y1="500.0" x2="377.0" y2="500.0" stroke="#f7f8f9" stroke-width="3.5"/>
+<path d="M 355.0 500.0 A 22 22 0 0 0 355.0 478.0" fill="none" stroke="#F07A1A" stroke-width="1.2"/>
+<line x1="355.0" y1="500.0" x2="355.0" y2="478.0" stroke="#F07A1A" stroke-width="1.2"/>
+<line x1="367.0" y1="350.0" x2="460.0" y2="350.0" stroke="#5b8aa8" stroke-width="4"/>
+<g stroke="#87898c" fill="#87898c" stroke-width="1"><line x1="325.0" y1="522.0" x2="475.0" y2="522.0"/><line x1="325.0" y1="517.0" x2="325.0" y2="527.0"/><line x1="475.0" y1="517.0" x2="475.0" y2="527.0"/></g><text x="400.0" y="516.0" text-anchor="middle" font-family="Roboto,Arial,sans-serif" font-size="12" fill="#87898c">2,40 м</text>
+<g stroke="#87898c" fill="#87898c" stroke-width="1"><line x1="497.0" y1="350.0" x2="497.0" y2="500.0"/><line x1="492.0" y1="350.0" x2="502.0" y2="350.0"/><line x1="492.0" y1="500.0" x2="502.0" y2="500.0"/></g><text x="505.0" y="425.0" font-family="Roboto,Arial,sans-serif" font-size="12" fill="#87898c">2,40 м</text>
+</svg>
