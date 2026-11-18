@@ -203,3 +203,6 @@
 
 .phones{display:flex;flex-direction:column;align-items:flex-start;gap:2px}
 .footer .phones .phone,.drawer__contact .phones .phone{display:block}
+
+.scheme-tile .product__image--photo{aspect-ratio:3/2}
+.scheme-tile .product__image--photo img{object-fit:cover;object-position:center}

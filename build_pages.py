@@ -50,6 +50,7 @@ CATS = [
     ('living', 'Раздевалки / жильё бригады'),
     ('san', 'Сан-бытовки'),
     ('modular', 'Модульные дома'),
+    ('pavilions', 'Павильоны'),
 ]
 
 
@@ -389,6 +390,7 @@ def footer(depth):
 <li><a href="{href(depth,'catalog')}#cat-dachnye">Дачная</a></li>
 <li><a href="{href(depth,'catalog')}#cat-sklad">Складская</a></li>
 <li><a href="{href(depth,'catalog')}#cat-guard">Пост охраны</a></li>
+<li><a href="{href(depth,'catalog')}#cat-pavilions">Павильоны</a></li>
 </ul></div>
 <div class="footer__contact">
 <p>{esc(ADDR)}</p>
@@ -503,10 +505,50 @@ def page_home():
 '''
 
 
+
+
+# Photo-only «Павильоны» tiles: no sizes, no prices.
+# To add more later, put 02.jpg, 03.jpg… into images/pavilions/ and append entries here.
+PAVILIONS = [
+    {
+        'file': '01.jpg',
+        'title': 'Павильон — вариант 1',
+        'desc': 'С остеклением и деревянными ламелями',
+        'alt': 'Павильон с остеклением и деревянными ламелями',
+        'w': 1536,
+        'h': 1024,
+    },
+]
+
+
+def pavilion_img(depth, filename):
+    return pth(depth, f'images/pavilions/{filename}')
+
+
+def pavilion_tile(v, depth=1):
+    src = pavilion_img(depth, v['file'])
+    search = ' '.join((v['title'], v['desc'])).lower()
+    return (
+        f'<article class="scheme-tile product" data-cat="pavilions" data-search="{esc(search)}">'
+        f'<div class="product-box">'
+        f'<a class="product__image product__image--photo scheme-link" href="{src}" data-gallery="pavilions" data-title="{esc(v["title"])}" aria-label="{esc(v["title"])}">'
+        f'<img src="{src}" alt="{esc(v["alt"])}" width="{v["w"]}" height="{v["h"]}" loading="lazy" decoding="async"/></a>'
+        f'<h3>{esc(v["title"])}</h3>'
+        f'<p class="scheme-desc">{esc(v["desc"])}</p>'
+        f'<div class="product__footer">'
+        f'<a class="button button--fill" href="{wa_link(v["title"])}" target="_blank" rel="noopener">Написать</a>'
+        f'</div>'
+        f'</div></article>'
+    )
+
+
 def cat_counts():
     c = {k: 0 for k, _ in CATS}
     for v in VARIANTS:
         c[v['cat']] += 1
+        c['all'] += 1
+    for v in PAVILIONS:
+        c['pavilions'] += 1
         c['all'] += 1
     return c
 
@@ -585,6 +627,8 @@ def page_catalog():
             f'<p class="product__status">{"Продажа и аренда" if v.get("stock") else "Изготовление на заказ"}</p>'
             f'</div></article>'
         )
+    for pv in PAVILIONS:
+        tiles.append(pavilion_tile(pv, 1))
     return f'''
 <section class="page-hero"><div class="container">
 <h1>Каталог бытовок</h1>
