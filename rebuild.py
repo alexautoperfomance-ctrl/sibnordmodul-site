@@ -11,6 +11,8 @@ TEXT = Path('/workspace/sibnord_text/main_6x24.txt')
 
 PHONE_DISP = '+7 913 943-88-14'
 TEL = 'tel:+79139438814'
+LANDLINE_DISP = '+7 (383) 375-00-10'
+LANDLINE_TEL = 'tel:+73833750010'
 WA = 'https://wa.me/79139438814'
 TG = 'https://t.me/Volt0ne'
 MAIL = 'mailto:Sibnordmodul@yandex.ru'
@@ -658,7 +660,10 @@ def contacts_html():
       <a class="button" href="{GIS_OPEN}" rel="noopener" target="_blank">Открыть в 2ГИС</a>
       <a class="button" href="{GIS_DIR}" rel="noopener" target="_blank">Построить маршрут</a>
     </div>
+    <div class="phones">
     <a class="phone" href="{TEL}">{PHONE_DISP}</a>
+    <a class="phone" href="{LANDLINE_TEL}">{LANDLINE_DISP}</a>
+    </div>
     <a class="mail" href="{MAIL}">{MAIL_DISP}</a>
     <div class="social-links">
       <a href="{WA}" rel="noopener" target="_blank"><svg aria-hidden="true" class="icon"><use href="#i-chat"></use></svg>WhatsApp</a>

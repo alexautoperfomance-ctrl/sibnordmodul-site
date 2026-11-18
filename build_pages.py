@@ -13,6 +13,8 @@ P = rb  # alias
 # Contacts from current site footer
 PHONE_DISP = '+7 913 943-88-14'
 TEL = 'tel:+79139438814'
+LANDLINE_DISP = '+7 (383) 375-00-10'
+LANDLINE_TEL = 'tel:+73833750010'
 WA = 'https://wa.me/79139438814'
 TG = 'https://t.me/Volt0ne'
 MAIL = 'mailto:Sibnordmodul@yandex.ru'
@@ -348,7 +350,10 @@ def site_chrome(depth, active):
 </a>
 <div class="header__local">
 <p><svg aria-hidden="true" class="icon"><use href="#i-pin"></use></svg> Новосибирск</p>
+<div class="phones">
 <a class="phone" href="{TEL}"><svg aria-hidden="true" class="icon"><use href="#i-phone"></use></svg>{PHONE_DISP}</a>
+<a class="phone" href="{LANDLINE_TEL}">{LANDLINE_DISP}</a>
+</div>
 </div>
 <div class="header__note"><strong>Собственное производство</strong>Бытовки, модульные дома, северные модули</div>
 <div class="header__actions">
@@ -387,7 +392,10 @@ def footer(depth):
 </ul></div>
 <div class="footer__contact">
 <p>{esc(ADDR)}</p>
+<div class="phones">
 <a class="phone" href="{TEL}">{PHONE_DISP}</a>
+<a class="phone" href="{LANDLINE_TEL}">{LANDLINE_DISP}</a>
+</div>
 <a class="mail" href="{MAIL}">{MAIL_DISP}</a>
 <div class="footer-chats">
 <a class="button button--white" href="{WA}" target="_blank" rel="noopener">WhatsApp</a>
@@ -412,7 +420,10 @@ def footer(depth):
 <button class="close-btn" aria-label="Закрыть меню" data-close="" type="button"><svg aria-hidden="true" class="icon"><use href="#i-close"></use></svg></button></div>
 <nav>{''.join(f'<a href="{href(depth,k)}">{esc(t)}</a>' for k,t in PAGES)}</nav>
 <div class="drawer__contact">
+<div class="phones">
 <a class="phone" href="{TEL}">{PHONE_DISP}</a>
+<a class="phone" href="{LANDLINE_TEL}">{LANDLINE_DISP}</a>
+</div>
 <a class="mail" href="{MAIL}">{MAIL_DISP}</a>
 <a class="button button--fill" href="{WA}" target="_blank" rel="noopener">WhatsApp</a>
 <a class="button" href="{TG}" target="_blank" rel="noopener">Telegram</a>
@@ -602,7 +613,7 @@ def page_rent():
 <li>Стоимость конкретной позиции и срока — договорная, уточняйте при обращении.</li>
 </ul>
 {chat_btns()}
-<p class="subtle" style="margin-top:18px">Телефон <a href="{TEL}">{PHONE_DISP}</a> · <a href="{MAIL}">{MAIL_DISP}</a></p>
+<p class="subtle" style="margin-top:18px">Телефон <a href="{TEL}">{PHONE_DISP}</a>, <a href="{LANDLINE_TEL}">{LANDLINE_DISP}</a> · <a href="{MAIL}">{MAIL_DISP}</a></p>
 </div></section>
 '''
 
@@ -786,7 +797,7 @@ def page_about():
 <div class="cta-band">
 <p>Расскажите задачу — подскажем конструкцию, комплектацию и срок. Производим сами и проверяем сборку на каждом этапе, от каркаса до отделки.</p>
 {chat_btns()}
-<p class="subtle">Телефон <a href="{TEL}">{PHONE_DISP}</a> · <a href="{MAIL}">{MAIL_DISP}</a> · {esc(ADDR)}</p>
+<p class="subtle">Телефон <a href="{TEL}">{PHONE_DISP}</a>, <a href="{LANDLINE_TEL}">{LANDLINE_DISP}</a> · <a href="{MAIL}">{MAIL_DISP}</a> · {esc(ADDR)}</p>
 </div>
 </div></section>
 """
@@ -827,6 +838,7 @@ def page_contacts():
 <section class="content-section"><div class="container contacts-page">
 <div class="contacts-actions">
 <a class="contact-btn" href="{TEL}"><svg aria-hidden="true" class="icon"><use href="#i-phone"></use></svg><span>Телефон</span><b>{PHONE_DISP}</b></a>
+<a class="contact-btn" href="{LANDLINE_TEL}"><svg aria-hidden="true" class="icon"><use href="#i-phone"></use></svg><span>Городской</span><b>{LANDLINE_DISP}</b></a>
 <a class="contact-btn" href="{WA}" target="_blank" rel="noopener"><svg aria-hidden="true" class="icon"><use href="#i-chat"></use></svg><span>WhatsApp</span><b>Написать в WhatsApp</b></a>
 <a class="contact-btn" href="{TG}" target="_blank" rel="noopener"><svg aria-hidden="true" class="icon"><use href="#i-telegram"></use></svg><span>Telegram</span><b>Написать в Telegram</b></a>
 <a class="contact-btn" href="{MAIL}"><svg aria-hidden="true" class="icon"><use href="#i-mail"></use></svg><span>Почта</span><b>{MAIL_DISP}</b></a>
@@ -1071,7 +1083,7 @@ def write_all(photos):
             1, 'gallery', 'gallery/', page_gallery(photos)),
         ROOT / 'contacts' / 'index.html': wrap(
             'Контакты — SibNordModul, Новосибирск, Пашино',
-            'Телефон +7 913 943-88-14, WhatsApp, Telegram, почта Sibnordmodul@yandex.ru. Адрес: Новосибирск, мкр. Пашино, Томская улица, 1.',
+            'Телефон +7 913 943-88-14, городской +7 (383) 375-00-10, WhatsApp, Telegram, почта Sibnordmodul@yandex.ru. Адрес: Новосибирск, мкр. Пашино, Томская улица, 1.',
             1, 'contacts', 'contacts/', page_contacts()),
     }
     for path, html_s in pages.items():
@@ -1105,6 +1117,7 @@ def main():
         if 'https://t.me/Volt0ne' not in h: issues.append(f'{path.name}: no TG')
         if 'wa.me/79139438814' not in h: issues.append(f'{path.name}: no WA')
         if PHONE_DISP not in h: issues.append(f'{path.name}: no phone')
+        if LANDLINE_DISP not in h: issues.append(f'{path.name}: no landline')
         if MAIL_DISP not in h: issues.append(f'{path.name}: no mail')
         if 'Дополнительная комплектация' in h: issues.append(f'{path}: extra section leaked')
         if 'Бытовка на фото' in h: issues.append(f'{path}: old menu item')

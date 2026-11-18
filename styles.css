@@ -200,3 +200,6 @@
 @media(max-width:767px){
   .about-use-grid,.opt-grid{grid-template-columns:1fr}
 }
+
+.phones{display:flex;flex-direction:column;align-items:flex-start;gap:2px}
+.footer .phones .phone,.drawer__contact .phones .phone{display:block}
